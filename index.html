@@ -1,0 +1,464 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Sidram S B | Java Backend Developer Portfolio</title>
+<meta name="description" content="Sidram S B is a Java Backend Developer from Bengaluru. Spring Boot, Spring Security, JWT, JPA/Hibernate and MySQL. BE Computer Science 2025. Open to relocation.">
+<meta name="author" content="Sidram S B">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#0c0517">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Sidram S B | Java Backend Developer">
+<meta property="og:description" content="Java Backend Developer in Bengaluru. Spring Boot, JWT, JPA/Hibernate, MySQL. See my projects and experience.">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Sidram S B | Java Backend Developer">
+<meta name="twitter:description" content="Java Backend Developer in Bengaluru. Spring Boot, JWT, JPA/Hibernate, MySQL.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Sidram S B",
+  "alternateName": ["Sidram SB", "Sidram Sparrow"],
+  "jobTitle": "Java Backend Developer",
+  "address": { "@type": "PostalAddress", "addressLocality": "Bengaluru", "addressRegion": "Karnataka", "addressCountry": "IN" },
+  "alumniOf": "Rajiv Gandhi Institute of Technology, Bengaluru",
+  "knowsAbout": ["Java", "Spring Boot", "Spring Security", "JWT", "Hibernate", "Spring Data JPA", "REST APIs", "MySQL"],
+  "sameAs": [
+    "https://github.com/SidramSparrow",
+    "https://www.linkedin.com/in/sidramsb1913"
+  ]
+}
+</script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap">
+<style>
+/* Layout: single-column glass sections floating over a violet orb field; sticky glass nav pill; hero pairs the intro with a Spring Boot style JSON response card. */
+:root {
+  --bg: #0c0517;
+  --bg-2: #170a30;
+  --violet: #8b5cf6;
+  --orchid: #c084fc;
+  --lilac: #e9d5ff;
+  --fg: #f6f1ff;
+  --muted: #b9aadb;
+  --glass-top: rgba(255, 255, 255, 0.15);
+  --glass-bot: rgba(255, 255, 255, 0.04);
+  --glass-edge: rgba(233, 213, 255, 0.22);
+  --shine: rgba(255, 255, 255, 0.38);
+  --good: #86efac;
+  --font-display: "Space Grotesk", "Inter", system-ui, sans-serif;
+  --font-body: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.65;
+  padding-block: 0 48px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  overflow-x: hidden;
+}
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0 0 auto;
+  height: env(safe-area-inset-top, 0px);
+  z-index: 30;
+  background: var(--bg);
+}
+a { color: inherit; }
+:focus-visible { outline: 2px solid var(--orchid); outline-offset: 3px; border-radius: 8px; }
+
+/* ambient orb field */
+.orbs { position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
+.orb { position: absolute; border-radius: 50%; filter: blur(70px); opacity: 0.75; animation: drift 22s ease-in-out infinite alternate; }
+.orb.a { width: 520px; height: 520px; left: -140px; top: -120px; background: radial-gradient(circle at 35% 35%, #a78bfa, #6d28d9 60%, transparent 72%); }
+.orb.b { width: 460px; height: 460px; right: -120px; top: 28%; background: radial-gradient(circle at 40% 40%, #d946ef, #7e22ce 60%, transparent 72%); animation-delay: -7s; }
+.orb.c { width: 560px; height: 560px; left: 18%; bottom: -220px; background: radial-gradient(circle at 50% 50%, #7c3aed, #4c1d95 62%, transparent 74%); animation-delay: -13s; }
+@keyframes drift { from { transform: translate3d(0, 0, 0) scale(1); } to { transform: translate3d(40px, 50px, 0) scale(1.12); } }
+
+.wrap { position: relative; z-index: 1; max-width: 1080px; margin: 0 auto; }
+
+/* glass */
+.glass {
+  position: relative;
+  background: linear-gradient(150deg, var(--glass-top), var(--glass-bot));
+  border: 1px solid var(--glass-edge);
+  border-radius: 24px;
+  backdrop-filter: blur(22px) saturate(150%);
+  -webkit-backdrop-filter: blur(22px) saturate(150%);
+  box-shadow: inset 0 1px 0 var(--shine), inset 0 -1px 0 rgba(255, 255, 255, 0.05), 0 24px 60px -18px rgba(10, 0, 40, 0.75);
+  overflow: hidden;
+}
+.glass::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 46%;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0));
+  pointer-events: none;
+}
+.glass > * { position: relative; }
+
+/* nav */
+.nav {
+  position: sticky;
+  top: calc(env(safe-area-inset-top, 0px) + 12px);
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 12px;
+  padding: 10px 12px 10px 20px;
+  border-radius: 999px;
+}
+.brand { font-family: var(--font-display); font-weight: 700; letter-spacing: 0.01em; text-decoration: none; white-space: nowrap; }
+.brand span { color: var(--orchid); }
+.nav ul { display: flex; gap: 4px; list-style: none; margin: 0; padding: 0; }
+.nav li a { display: block; padding: 7px 14px; border-radius: 999px; font-size: 14px; color: var(--muted); text-decoration: none; transition: background 0.2s, color 0.2s; }
+.nav li a:hover { background: rgba(255, 255, 255, 0.12); color: var(--fg); }
+@media (max-width: 720px) { .nav li:not(:last-child) { display: none; } }
+
+/* hero */
+.hero { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: 28px; align-items: center; padding-block: 56px 28px; }
+.hero > * { min-width: 0; }
+.status { display: inline-flex; align-items: center; gap: 10px; padding: 6px 14px; border-radius: 999px; font-size: 13px; color: var(--lilac); }
+.status i { width: 8px; height: 8px; border-radius: 50%; background: var(--good); box-shadow: 0 0 0 4px rgba(134, 239, 172, 0.2); flex: none; }
+.eyebrow { font-family: var(--font-mono); font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--orchid); margin: 22px 0 10px; }
+h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2.8rem, 8vw, 5.2rem);
+  line-height: 1.02;
+  letter-spacing: -0.03em;
+  margin: 0 0 18px;
+  text-wrap: balance;
+  background: linear-gradient(180deg, #ffffff 15%, #d8b4fe 60%, #a78bfa 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.lead { max-width: 52ch; color: var(--muted); font-size: 1.08rem; margin: 0 0 26px; }
+.cta { display: flex; flex-wrap: wrap; gap: 12px; }
+.btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 12px 22px; border-radius: 999px;
+  font-weight: 600; font-size: 15px; text-decoration: none;
+  border: 1px solid var(--glass-edge);
+  background: linear-gradient(150deg, var(--glass-top), var(--glass-bot));
+  box-shadow: inset 0 1px 0 var(--shine);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.btn:hover { transform: translateY(-2px); }
+.btn.primary {
+  background: linear-gradient(180deg, #b794ff 0%, #7c3aed 55%, #6d28d9 100%);
+  border-color: rgba(255, 255, 255, 0.35);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6), 0 12px 30px -8px rgba(139, 92, 246, 0.8);
+}
+
+/* json card */
+.api { padding: 0; }
+.api-bar { display: flex; align-items: center; gap: 8px; padding: 14px 18px; border-bottom: 1px solid var(--glass-edge); font-family: var(--font-mono); font-size: 12.5px; color: var(--muted); }
+.api-bar b { color: var(--good); font-weight: 500; }
+.dots { display: flex; gap: 6px; margin-right: 6px; }
+.dots i { width: 10px; height: 10px; border-radius: 50%; background: rgba(255, 255, 255, 0.28); }
+.avatar { display: flex; align-items: center; gap: 14px; padding: 18px 20px 4px; }
+.mono-circle {
+  width: 64px; height: 64px; border-radius: 50%;
+  display: grid; place-items: center;
+  font-family: var(--font-display); font-weight: 700; font-size: 22px;
+  background: radial-gradient(circle at 30% 25%, #e9d5ff, #8b5cf6 55%, #4c1d95);
+  box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.6), 0 8px 24px -6px rgba(139, 92, 246, 0.9);
+}
+.avatar p { margin: 0; line-height: 1.35; }
+.avatar small { color: var(--muted); }
+pre.code { margin: 0; padding: 12px 20px 22px; font-family: var(--font-mono); font-size: 13.5px; line-height: 1.75; overflow-x: auto; color: var(--lilac); }
+.k { color: #f0abfc; } .s { color: #a5f3fc; } .n { color: #fde68a; }
+
+/* sections */
+section { padding-block: 44px 8px; scroll-margin-top: 84px; }
+.sec-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 22px; flex-wrap: wrap; }
+h2 { font-family: var(--font-display); font-size: clamp(1.7rem, 4vw, 2.4rem); letter-spacing: -0.02em; margin: 0; text-wrap: balance; }
+.sec-head span { font-family: var(--font-mono); font-size: 12.5px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--orchid); }
+
+.grid { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); }
+.grid > * { min-width: 0; }
+.card { padding: 24px; }
+.card h3 { font-family: var(--font-display); font-size: 1.15rem; margin: 0 0 14px; }
+.label { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--orchid); margin: 0 0 12px; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 0; padding: 0; list-style: none; }
+.chips li {
+  padding: 5px 13px; border-radius: 999px; font-size: 13.5px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.05));
+  border: 1px solid rgba(233, 213, 255, 0.22);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+.chips li.hot { background: linear-gradient(180deg, rgba(192, 132, 252, 0.55), rgba(124, 58, 237, 0.4)); border-color: rgba(233, 213, 255, 0.5); }
+
+/* timeline */
+.timeline { display: grid; gap: 16px; }
+.job { display: grid; grid-template-columns: 190px minmax(0, 1fr); gap: 8px 28px; padding: 26px; }
+@media (max-width: 720px) { .job { grid-template-columns: minmax(0, 1fr); } }
+.when { font-family: var(--font-mono); font-size: 13px; color: var(--orchid); }
+.job h3 { font-family: var(--font-display); font-size: 1.3rem; margin: 0; }
+.org { color: var(--muted); margin: 2px 0 12px; font-size: 15px; }
+.job ul, .proj ul.pts { margin: 0; padding-left: 20px; color: #e4d8fb; }
+.job li, .proj ul.pts li { margin-bottom: 6px; }
+.job li::marker, .proj ul.pts li::marker { color: var(--orchid); }
+
+/* projects */
+.proj { padding: 26px; display: flex; flex-direction: column; gap: 16px; }
+.proj.wide { grid-column: 1 / -1; }
+.proj h3 { font-family: var(--font-display); font-size: 1.4rem; margin: 0; }
+.flow { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; font-size: 13px; }
+.flow span.node { padding: 6px 12px; border-radius: 12px; background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(233, 213, 255, 0.25); font-family: var(--font-mono); font-size: 12.5px; }
+.flow span.node.out { background: linear-gradient(180deg, rgba(192, 132, 252, 0.6), rgba(124, 58, 237, 0.45)); border-color: rgba(255, 255, 255, 0.45); }
+.flow .arr { color: var(--orchid); }
+.link { margin-top: auto; align-self: flex-start; color: var(--lilac); font-weight: 600; text-decoration: none; border-bottom: 1px solid var(--orchid); padding-bottom: 2px; }
+
+/* education */
+.edu { display: grid; gap: 12px; align-content: start; }
+.edu h3 { margin: 0; }
+.edu p { margin: 0; color: var(--muted); }
+.edu strong { color: var(--fg); font-weight: 600; }
+.credential { font-family: var(--font-mono); font-size: 13px; padding: 8px 12px; border-radius: 12px; background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(233, 213, 255, 0.2); overflow-wrap: anywhere; user-select: all; color: var(--lilac); }
+
+/* contact */
+.contact { padding: clamp(24px, 5vw, 48px); text-align: left; }
+.contact h2 { margin-bottom: 10px; }
+.contact > p { color: var(--muted); max-width: 52ch; margin: 0 0 26px; }
+.rows { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); }
+.row { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 14px 18px; border-radius: 18px; background: rgba(255, 255, 255, 0.07); border: 1px solid rgba(233, 213, 255, 0.2); min-width: 0; }
+.row div { min-width: 0; }
+.row small { display: block; font-family: var(--font-mono); font-size: 11.5px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--orchid); }
+.row span.v { display: block; overflow-wrap: anywhere; user-select: all; }
+.copy { flex: none; cursor: pointer; border: 1px solid rgba(233, 213, 255, 0.35); background: rgba(255, 255, 255, 0.1); color: var(--fg); font: inherit; font-size: 13px; padding: 6px 14px; border-radius: 999px; }
+.copy:hover { background: rgba(255, 255, 255, 0.2); }
+.socials { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 22px; }
+footer { position: relative; z-index: 1; text-align: center; color: var(--muted); font-size: 13px; padding-top: 40px; }
+
+@media (prefers-reduced-motion: reduce) {
+  .orb { animation: none; }
+  html { scroll-behavior: auto; }
+  .btn { transition: none; }
+}
+</style>
+</head>
+<body>
+
+<div class="orbs" aria-hidden="true"><div class="orb a"></div><div class="orb b"></div><div class="orb c"></div></div>
+
+<div class="wrap">
+  <nav class="nav glass" aria-label="Main">
+    <a class="brand" href="#top">Sidram<span>.</span>dev</a>
+    <ul>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#experience">Internships</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <header class="hero" id="top">
+    <div>
+      <span class="status glass"><i></i>Open to entry-level roles · Open to relocation</span>
+      <p class="eyebrow">Java Backend Developer · Bengaluru</p>
+      <h1>Sidram S B</h1>
+      <p class="lead">2025 Computer Science graduate building production-style Java backends with Spring Boot. JWT authentication with refresh tokens, role-based and ownership-based authorization, JPA/Hibernate relationships, pagination and dynamic search over MySQL.</p>
+      <div class="cta">
+        <a class="btn primary" href="#projects">View projects</a>
+        <a class="btn" href="#contact">Get in touch</a>
+        <a class="btn" href="https://github.com/SidramSparrow" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+
+    <aside class="glass api" aria-label="Profile summary as an API response">
+      <div class="api-bar"><span class="dots"><i></i><i></i><i></i></span>GET /api/sidram <b>200 OK</b></div>
+      <div class="avatar">
+        <div class="mono-circle" aria-hidden="true">SB</div>
+        <p><strong>Sidram S B</strong><br><small>Java Backend Developer</small></p>
+      </div>
+<pre class="code"><span class="k">{</span>
+  <span class="s">"role"</span>: <span class="s">"Java Backend Developer"</span>,
+  <span class="s">"stack"</span>: [<span class="s">"Java"</span>, <span class="s">"Spring Boot"</span>,
+            <span class="s">"Spring Security"</span>, <span class="s">"JWT"</span>,
+            <span class="s">"Hibernate"</span>, <span class="s">"MySQL"</span>],
+  <span class="s">"degree"</span>: <span class="s">"BE, Computer Science, 2025"</span>,
+  <span class="s">"internships"</span>: <span class="n">2</span>,
+  <span class="s">"certification"</span>: <span class="s">"HackerRank Java (Basic)"</span>,
+  <span class="s">"openToRelocation"</span>: <span class="n">true</span>
+<span class="k">}</span></pre>
+    </aside>
+  </header>
+
+  <section id="skills">
+    <div class="sec-head"><h2>Technical skills</h2><span>Stack</span></div>
+    <div class="grid">
+      <article class="glass card">
+        <p class="label">Backend</p>
+        <ul class="chips"><li class="hot">Java</li><li class="hot">Spring Boot</li><li class="hot">Spring Data JPA</li><li class="hot">Hibernate</li><li>REST APIs</li><li>Spring Security</li><li>JWT</li><li>Bean Validation</li><li>JDBC</li></ul>
+      </article>
+      <article class="glass card">
+        <p class="label">Security</p>
+        <ul class="chips"><li class="hot">JWT access and refresh tokens</li><li>BCrypt</li><li>Role-based access (@PreAuthorize)</li><li>CORS</li><li>Stateless authentication</li></ul>
+      </article>
+      <article class="glass card">
+        <p class="label">Database</p>
+        <ul class="chips"><li class="hot">MySQL</li><li>SQL</li><li>DBMS</li><li>JPA Specifications</li><li>Pagination (Pageable)</li></ul>
+      </article>
+      <article class="glass card">
+        <p class="label">Java core</p>
+        <ul class="chips"><li>OOP</li><li>Collections</li><li>Generics</li><li>Streams and Lambdas</li><li>Optional</li><li>Date/Time API</li><li>Multithreading</li><li>Exception Handling</li><li>File Handling</li></ul>
+      </article>
+      <article class="glass card">
+        <p class="label">Tools</p>
+        <ul class="chips"><li>Git</li><li>GitHub</li><li>Maven</li><li>Gradle</li><li>Postman</li><li>IntelliJ IDEA</li></ul>
+      </article>
+      <article class="glass card">
+        <p class="label">Frontend (basic)</p>
+        <ul class="chips"><li>HTML</li><li>CSS</li><li>JavaScript</li><li>Bootstrap</li></ul>
+      </article>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="sec-head"><h2>Projects</h2><span>Selected work</span></div>
+    <div class="grid">
+      <article class="glass proj wide">
+        <p class="label">Spring Boot · Spring Security · JWT · Spring Data JPA · Hibernate · MySQL</p>
+        <h3>Student Management REST API</h3>
+        <div class="flow" aria-label="Request path from client through JwtFilter, controller, service and repository to MySQL">
+          <span class="node">Client</span><span class="arr">→</span><span class="node">JwtFilter</span><span class="arr">→</span><span class="node">Controller</span><span class="arr">→</span><span class="node">Service</span><span class="arr">→</span><span class="node">Repository</span><span class="arr">→</span><span class="node out">MySQL</span>
+        </div>
+        <ul class="pts">
+          <li>Built a layered REST API (controller, service, repository, DTO, entity) with full CRUD for students and courses, a many-to-many Student-Course mapping, and Bean Validation with structured 400/404/409 errors via a global exception handler.</li>
+          <li>Secured it with stateless JWT authentication: custom JwtFilter, database-backed UserDetailsService, BCrypt password hashing, and ADMIN/USER roles enforced at URL level and with @PreAuthorize.</li>
+          <li>Implemented a refresh-token flow (1-hour access token, 7-day refresh token stored in MySQL) with logout by revocation and custom JSON responses for 401 and 403.</li>
+          <li>Added pagination with Pageable and dynamic filtering and search (age, course, keyword) using JPA Specification; configured CORS and loaded the JWT secret from environment variables.</li>
+        </ul>
+        <a class="link" href="https://github.com/SidramSparrow" target="_blank" rel="noopener">View on GitHub →</a>
+      </article>
+
+      <article class="glass proj">
+        <p class="label">Spring Boot · Spring Data JPA · MySQL · Postman</p>
+        <h3>E-Commerce REST API</h3>
+        <ul class="pts">
+          <li>Designed and built a RESTful backend for product, cart and order management using Spring Boot and Spring Data JPA with MySQL.</li>
+          <li>Tested every endpoint with Postman before integration.</li>
+        </ul>
+        <a class="link" href="https://github.com/SidramSparrow" target="_blank" rel="noopener">View on GitHub →</a>
+      </article>
+
+      <article class="glass proj">
+        <p class="label">Core Java · OOP · Collections · JDBC · MySQL</p>
+        <h3>Console Applications</h3>
+        <ul class="pts">
+          <li><strong>Library Management System:</strong> books, members and issue/return tracking with MySQL persistence.</li>
+          <li><strong>Banking Management System:</strong> account and transaction handling with JDBC-backed storage.</li>
+          <li><strong>Employee Management System:</strong> employee records and payroll processing.</li>
+        </ul>
+        <a class="link" href="https://github.com/SidramSparrow" target="_blank" rel="noopener">View on GitHub →</a>
+      </article>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="sec-head"><h2>Internships</h2><span>Experience</span></div>
+    <div class="timeline">
+      <article class="glass job">
+        <div class="when">Aug 2023 – Oct 2023</div>
+        <div>
+          <h3>Full-Stack Development Intern</h3>
+          <p class="org">Varcons Technology Pvt Ltd</p>
+          <ul>
+            <li>Built full-stack features across frontend and backend, connecting UI components (HTML, CSS, JavaScript, Bootstrap) to database operations.</li>
+            <li>Worked with the team on debugging, testing and functionality improvements.</li>
+          </ul>
+        </div>
+      </article>
+      <article class="glass job">
+        <div class="when">May 2023 – Jul 2023</div>
+        <div>
+          <h3>Web Application Development Intern</h3>
+          <p class="org">Revoseven Technology Pvt Ltd</p>
+          <ul>
+            <li>Built a corporate landing page and responsive web pages, tested for cross-browser and cross-device compatibility.</li>
+          </ul>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="education">
+    <div class="sec-head"><h2>Education and certification</h2><span>Learning</span></div>
+    <div class="grid">
+      <article class="glass card edu">
+        <p class="label">Degree · Feb 2021 – Apr 2025</p>
+        <h3>B.E. Computer Science and Engineering</h3>
+        <p><strong>Rajiv Gandhi Institute of Technology</strong>, Bengaluru</p>
+        <p>CGPA: 6.6</p>
+        <p>Coursework: Core Java, OOP, SQL, DBMS, Operating Systems, Software Engineering</p>
+      </article>
+      <article class="glass card edu">
+        <p class="label">Certification · Nov 2026</p>
+        <h3>HackerRank Skills Certification: Java (Basic)</h3>
+        <p>Credential ID</p>
+        <div class="credential">A496D37546F8</div>
+      </article>
+      <article class="glass card edu">
+        <p class="label">Additional</p>
+        <h3>Microsoft Learn Student Ambassador</h3>
+        <p class="label" style="margin: 6px 0 0">Languages</p>
+        <ul class="chips"><li>English (Fluent)</li><li>Hindi (Fluent)</li><li>Kannada (Native)</li></ul>
+      </article>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="glass contact">
+      <h2>Let's build something solid.</h2>
+      <p>I am looking for an entry-level Java Backend Developer role and I am open to relocation. Send me a message or take a look at my code.</p>
+      <div class="rows">
+        <div class="row"><div><small>Email</small><span class="v" id="mail">Bajantrisidram13@gmail.com</span></div><button class="copy" type="button" data-target="mail">Copy</button></div>
+        <div class="row"><div><small>Phone</small><span class="v" id="tel">0997 294 03 81</span></div><button class="copy" type="button" data-target="tel">Copy</button></div>
+      </div>
+      <div class="socials">
+        <a class="btn primary" href="https://www.linkedin.com/in/sidramsb1913" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn" href="https://github.com/SidramSparrow" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>© 2026 Sidram S B · Bengaluru, Karnataka</footer>
+</div>
+
+<script>
+document.querySelectorAll(".copy").forEach(function (btn) {
+  btn.addEventListener("click", function () {
+    var el = document.getElementById(btn.dataset.target);
+    var text = el.textContent.trim();
+    function done() { btn.textContent = "Copied"; setTimeout(function () { btn.textContent = "Copy"; }, 1600); }
+    function fallback() {
+      try {
+        var r = document.createRange(); r.selectNodeContents(el);
+        var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+        btn.textContent = "Selected";
+        setTimeout(function () { btn.textContent = "Copy"; }, 1600);
+      } catch (e) {}
+    }
+    try {
+      navigator.clipboard.writeText(text).then(done, fallback);
+    } catch (e) { fallback(); }
+  });
+});
+</script>
+</body>
+</html>
